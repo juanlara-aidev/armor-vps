@@ -283,21 +283,72 @@ install_packages() {
     # Configurar apt para no interactivo
     export DEBIAN_FRONTEND=noninteractive
 
-    # Actualizar repositorios
+    # Esperar si hay procesos apt/dpkg corriendo
+    print_substep "Verificando disponibilidad de apt..."
+    local wait_count=0
+    while fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 || \
+          fuser /var/lib/apt/lists/lock >/dev/null 2>&1 || \
+          fuser /var/cache/apt/archives/lock >/dev/null 2>&1; do
+        if [[ $wait_count -eq 0 ]]; then
+            print_warning "Esperando que otros procesos apt terminen..."
+        fi
+        sleep 2
+        ((wait_count++))
+        if [[ $wait_count -gt 30 ]]; then
+            print_error "Timeout esperando por apt. Intenta más tarde."
+            return 1
+        fi
+    done
+    [[ $wait_count -gt 0 ]] && print_ok "APT disponible"
+
+    # Actualizar repositorios con manejo de errores mejorado
     print_substep "Actualizando lista de paquetes..."
-    if ! apt-get update -y &>/dev/null; then
-        print_error "Error al actualizar repositorios"
-        return 1
+
+    local update_output
+    local update_exit_code
+
+    update_output=$(apt-get update -y 2>&1)
+    update_exit_code=$?
+
+    if [[ $update_exit_code -ne 0 ]]; then
+        # Intentar limpiar y reparar
+        print_warning "Primer intento falló, limpiando caché de apt..."
+
+        apt-get clean >/dev/null 2>&1
+        rm -rf /var/lib/apt/lists/* >/dev/null 2>&1
+        mkdir -p /var/lib/apt/lists/partial >/dev/null 2>&1
+
+        # Segundo intento
+        print_substep "Reintentando actualización..."
+        update_output=$(apt-get update -y 2>&1)
+        update_exit_code=$?
+
+        if [[ $update_exit_code -ne 0 ]]; then
+            print_error "Error al actualizar repositorios"
+            echo ""
+            echo -e "${YELLOW}Detalles del error:${NC}"
+            echo "$update_output" | tail -20
+            echo ""
+            print_warning "Verifica tu conexión a internet y repositorios"
+            return 1
+        fi
     fi
+
     print_ok "Repositorios actualizados"
 
     # Instalar UFW si no está instalado
     print_substep "Verificando/Instalando UFW..."
-    if dpkg -l | grep -qw ufw; then
+    if dpkg -l 2>/dev/null | grep -qw ufw; then
         print_ok "UFW ya está instalado"
     else
-        if ! apt-get install -y ufw &>/dev/null; then
+        local install_output
+        install_output=$(apt-get install -y ufw 2>&1)
+        if [[ $? -ne 0 ]]; then
             print_error "Error al instalar UFW"
+            echo ""
+            echo -e "${YELLOW}Detalles del error:${NC}"
+            echo "$install_output" | tail -15
+            echo ""
             return 1
         fi
         print_ok "UFW instalado"
@@ -305,11 +356,17 @@ install_packages() {
 
     # Instalar Fail2ban si no está instalado
     print_substep "Verificando/Instalando Fail2ban..."
-    if dpkg -l | grep -qw fail2ban; then
+    if dpkg -l 2>/dev/null | grep -qw fail2ban; then
         print_ok "Fail2ban ya está instalado"
     else
-        if ! apt-get install -y fail2ban &>/dev/null; then
+        local install_output
+        install_output=$(apt-get install -y fail2ban 2>&1)
+        if [[ $? -ne 0 ]]; then
             print_error "Error al instalar Fail2ban"
+            echo ""
+            echo -e "${YELLOW}Detalles del error:${NC}"
+            echo "$install_output" | tail -15
+            echo ""
             return 1
         fi
         print_ok "Fail2ban instalado"
