@@ -5,6 +5,18 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.0.2] - 2026-01-07
+
+### 🐛 Corregido
+
+- **CRÍTICO**: Corregido fallo en instalación de paquetes en Debian 11
+  - El script fallaba silenciosamente en `apt-get update` sin mostrar el error
+  - Ahora detecta y espera si hay procesos apt/dpkg bloqueados
+  - Captura y muestra errores reales de apt en lugar de ocultarlos
+  - Intenta limpiar caché de apt y reintentar automáticamente si falla
+  - Muestra detalles útiles de errores al usuario para mejor diagnóstico
+  - Mejora significativa en la robustez de instalación en Debian/Ubuntu
+
 ## [1.0.1] - 2026-01-06
 
 ### 🐛 Corregido
@@ -63,5 +75,6 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 ---
 
+[1.0.2]: https://github.com/juanlara-aidev/armor-vps/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/juanlara-aidev/armor-vps/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/juanlara-aidev/armor-vps/releases/tag/v1.0.0
