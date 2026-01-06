@@ -11,13 +11,13 @@ Automatiza la configuración de seguridad de tu servidor VPS en minutos: SSH end
 Conéctate a tu VPS como **root** y ejecuta:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/TU_USUARIO/armor-vps/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/juanlara-aidev/armor-vps/main/install.sh | bash
 ```
 
 O si prefieres `wget`:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/TU_USUARIO/armor-vps/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/juanlara-aidev/armor-vps/main/install.sh | bash
 ```
 
 **¡Eso es todo!** El script te pedirá:
@@ -99,7 +99,7 @@ ssh root@TU_IP_DEL_SERVIDOR
 ### Paso 2: Ejecuta el comando de instalación
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/TU_USUARIO/armor-vps/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/juanlara-aidev/armor-vps/main/install.sh | bash
 ```
 
 ### Paso 3: Proporciona los datos solicitados
@@ -316,8 +316,8 @@ Después de ejecutar Armor VPS, considera:
 
 Si tienes problemas o preguntas:
 
-- 🐛 [Reportar un bug](https://github.com/TU_USUARIO/armor-vps/issues)
-- 💬 [Iniciar una discusión](https://github.com/TU_USUARIO/armor-vps/discussions)
+- 🐛 [Reportar un bug](https://github.com/juanlara-aidev/armor-vps/issues)
+- 💬 [Iniciar una discusión](https://github.com/juanlara-aidev/armor-vps/discussions)
 - ⭐ Si te fue útil, ¡deja una estrella!
 
 ---

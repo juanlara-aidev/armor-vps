@@ -19,7 +19,7 @@ Haz clic en el botón "Fork" en la parte superior derecha de la página del repo
 ### 2. Clona tu Fork
 
 ```bash
-git clone https://github.com/TU_USUARIO/armor-vps.git
+git clone https://github.com/juanlara-aidev/armor-vps.git
 cd armor-vps
 ```
 
@@ -93,7 +93,7 @@ Antes de enviar un PR:
 
 ## 🐛 Reportar Bugs
 
-Si encuentras un bug, [abre un issue](https://github.com/TU_USUARIO/armor-vps/issues/new) incluyendo:
+Si encuentras un bug, [abre un issue](https://github.com/juanlara-aidev/armor-vps/issues/new) incluyendo:
 
 - **Descripción clara** del problema
 - **Pasos para reproducir** el bug
@@ -135,8 +135,8 @@ Antes de enviar tu Pull Request, verifica:
 Si tienes preguntas:
 
 - Revisa la [documentación](README.md)
-- Busca en [issues existentes](https://github.com/TU_USUARIO/armor-vps/issues)
-- Abre un [nuevo issue](https://github.com/TU_USUARIO/armor-vps/issues/new)
+- Busca en [issues existentes](https://github.com/juanlara-aidev/armor-vps/issues)
+- Abre un [nuevo issue](https://github.com/juanlara-aidev/armor-vps/issues/new)
 
 ---
 

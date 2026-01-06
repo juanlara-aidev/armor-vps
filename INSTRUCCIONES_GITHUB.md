@@ -33,8 +33,8 @@ El repositorio local está listo con:
 GitHub te mostrará varias opciones. Como **ya tienes un repositorio local**, usa:
 
 ```bash
-# Añadir el remote de GitHub (reemplaza TU_USUARIO con tu usuario de GitHub)
-git remote add origin https://github.com/TU_USUARIO/armor-vps.git
+# Añadir el remote de GitHub (reemplaza juanlara-aidev con tu usuario de GitHub)
+git remote add origin https://github.com/juanlara-aidev/armor-vps.git
 
 # Verificar que se añadió correctamente
 git remote -v
@@ -46,7 +46,7 @@ git push -u origin main
 Si prefieres usar SSH:
 
 ```bash
-git remote add origin git@github.com:TU_USUARIO/armor-vps.git
+git remote add origin git@github.com:juanlara-aidev/armor-vps.git
 git push -u origin main
 ```
 
@@ -57,16 +57,16 @@ git push -u origin main
 Antes de hacer push, actualiza el README para que los comandos funcionen con tu usuario:
 
 ```bash
-# Reemplaza TU_USUARIO con tu nombre de usuario real de GitHub en:
+# Reemplaza juanlara-aidev con tu nombre de usuario real de GitHub en:
 # - README.md
 # - CONTRIBUTING.md
 # - CHANGELOG.md
 
 # Ejemplo: si tu usuario es "juanlara", busca y reemplaza:
-# TU_USUARIO → juanlara
+# juanlara-aidev → juanlara
 
 # Puedes hacerlo manualmente o con este comando:
-find . -type f -name "*.md" -exec sed -i '' 's/TU_USUARIO/tu_usuario_real/g' {} +
+find . -type f -name "*.md" -exec sed -i '' 's/juanlara-aidev/tu_usuario_real/g' {} +
 
 # Luego commitea los cambios:
 git add README.md CONTRIBUTING.md CHANGELOG.md
@@ -82,7 +82,7 @@ Una vez que hayas hecho push a GitHub, prueba que el comando funcione:
 
 ```bash
 # Desde tu VPS de prueba (como root):
-curl -fsSL https://raw.githubusercontent.com/TU_USUARIO/armor-vps/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/juanlara-aidev/armor-vps/main/install.sh | bash
 ```
 
 ---
@@ -127,13 +127,13 @@ En la página principal de tu repo en GitHub:
 Una vez publicado, los usuarios podrán instalar Armor VPS con:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/TU_USUARIO/armor-vps/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/juanlara-aidev/armor-vps/main/install.sh | bash
 ```
 
 o
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/TU_USUARIO/armor-vps/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/juanlara-aidev/armor-vps/main/install.sh | bash
 ```
 
 ---
@@ -142,10 +142,10 @@ wget -qO- https://raw.githubusercontent.com/TU_USUARIO/armor-vps/main/install.sh
 
 Después de publicar, tendrás:
 
-- **Repositorio:** `https://github.com/TU_USUARIO/armor-vps`
-- **Script raw:** `https://raw.githubusercontent.com/TU_USUARIO/armor-vps/main/install.sh`
-- **Issues:** `https://github.com/TU_USUARIO/armor-vps/issues`
-- **Releases:** `https://github.com/TU_USUARIO/armor-vps/releases`
+- **Repositorio:** `https://github.com/juanlara-aidev/armor-vps`
+- **Script raw:** `https://raw.githubusercontent.com/juanlara-aidev/armor-vps/main/install.sh`
+- **Issues:** `https://github.com/juanlara-aidev/armor-vps/issues`
+- **Releases:** `https://github.com/juanlara-aidev/armor-vps/releases`
 
 ---
 

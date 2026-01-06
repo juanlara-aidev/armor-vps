@@ -54,4 +54,4 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 ---
 
-[1.0.0]: https://github.com/TU_USUARIO/armor-vps/releases/tag/v1.0.0
+[1.0.0]: https://github.com/juanlara-aidev/armor-vps/releases/tag/v1.0.0
