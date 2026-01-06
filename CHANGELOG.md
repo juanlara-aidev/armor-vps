@@ -5,6 +5,19 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.0.3] - 2026-01-07
+
+### 🐛 Corregido
+
+- **CRÍTICO**: Script ahora tolera errores de repositorios opcionales (backports en Debian 11)
+  - El repositorio `bullseye-backports` retorna 404 Not Found en algunos servidores
+  - Backports es OPCIONAL y no afecta la instalación de UFW/Fail2ban
+  - Usa `--allow-releaseinfo-change` para ser más permisivo
+  - Verifica disponibilidad de paquetes necesarios antes de fallar
+  - Continúa la instalación si los paquetes principales están disponibles
+  - Solo falla si realmente no se pueden instalar UFW o Fail2ban
+  - Resuelve definitivamente el problema de instalación en Debian 11
+
 ## [1.0.2] - 2026-01-07
 
 ### 🐛 Corregido
@@ -75,6 +88,7 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 ---
 
+[1.0.3]: https://github.com/juanlara-aidev/armor-vps/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/juanlara-aidev/armor-vps/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/juanlara-aidev/armor-vps/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/juanlara-aidev/armor-vps/releases/tag/v1.0.0
