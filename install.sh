@@ -307,7 +307,8 @@ install_packages() {
     local update_output
     local update_exit_code
 
-    update_output=$(apt-get update -y 2>&1)
+    # Primer intento con opciones permisivas
+    update_output=$(apt-get update --allow-releaseinfo-change -y 2>&1)
     update_exit_code=$?
 
     if [[ $update_exit_code -ne 0 ]]; then
@@ -320,17 +321,37 @@ install_packages() {
 
         # Segundo intento
         print_substep "Reintentando actualización..."
-        update_output=$(apt-get update -y 2>&1)
+        update_output=$(apt-get update --allow-releaseinfo-change -y 2>&1)
         update_exit_code=$?
 
         if [[ $update_exit_code -ne 0 ]]; then
-            print_error "Error al actualizar repositorios"
-            echo ""
-            echo -e "${YELLOW}Detalles del error:${NC}"
-            echo "$update_output" | tail -20
-            echo ""
-            print_warning "Verifica tu conexión a internet y repositorios"
-            return 1
+            # Verificar si el error es solo por repositorios opcionales (backports)
+            if echo "$update_output" | grep -q "backports"; then
+                print_warning "Repositorio backports no disponible (opcional)"
+
+                # Verificar si los paquetes necesarios están disponibles
+                print_substep "Verificando disponibilidad de paquetes necesarios..."
+
+                if apt-cache policy ufw >/dev/null 2>&1 && apt-cache policy fail2ban >/dev/null 2>&1; then
+                    print_ok "Paquetes necesarios disponibles, continuando"
+                else
+                    print_error "No se pueden obtener los paquetes necesarios"
+                    echo ""
+                    echo -e "${YELLOW}Detalles del error:${NC}"
+                    echo "$update_output" | tail -20
+                    echo ""
+                    return 1
+                fi
+            else
+                # Error crítico, no relacionado con backports
+                print_error "Error al actualizar repositorios"
+                echo ""
+                echo -e "${YELLOW}Detalles del error:${NC}"
+                echo "$update_output" | tail -20
+                echo ""
+                print_warning "Verifica tu conexión a internet y repositorios"
+                return 1
+            fi
         fi
     fi
 
