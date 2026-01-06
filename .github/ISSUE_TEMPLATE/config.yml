@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discusiones
+    url: https://github.com/juanlara-aidev/armor-vps/discussions
+    about: Haz preguntas, comparte ideas o inicia conversaciones con la comunidad
+  - name: 📚 Documentación
+    url: https://github.com/juanlara-aidev/armor-vps#readme
+    about: Lee la documentación completa del proyecto
