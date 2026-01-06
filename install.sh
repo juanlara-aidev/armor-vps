@@ -178,7 +178,7 @@ get_public_key() {
     echo -e "  ${BLUE}Pega tu llave pública completa y presiona ENTER:${NC}"
     echo ""
 
-    read -r PUBLIC_KEY
+    read -r PUBLIC_KEY < /dev/tty
 
     # Eliminar espacios en blanco al inicio y final
     PUBLIC_KEY=$(echo "$PUBLIC_KEY" | xargs)
@@ -216,7 +216,7 @@ get_ssh_port() {
     echo -e "  ${BLUE}Ingresa el puerto deseado o presiona ENTER para uno aleatorio:${NC}"
     echo ""
 
-    read -r USER_PORT
+    read -r USER_PORT < /dev/tty
 
     if [[ -z "$USER_PORT" ]]; then
         # Generar puerto aleatorio alto
