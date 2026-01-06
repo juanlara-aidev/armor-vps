@@ -5,6 +5,15 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.0.1] - 2026-01-06
+
+### 🐛 Corregido
+
+- **CRÍTICO**: Corregido problema donde el script se detenía al ejecutarse mediante `curl | bash`
+  - Ahora `read` lee desde `/dev/tty` en lugar de `stdin`
+  - Permite que el usuario pueda ingresar su llave SSH y puerto correctamente
+  - El script ahora funciona perfectamente con `curl -fsSL URL | bash`
+
 ## [1.0.0] - 2026-01-06
 
 ### ✨ Añadido
@@ -54,4 +63,5 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 ---
 
+[1.0.1]: https://github.com/juanlara-aidev/armor-vps/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/juanlara-aidev/armor-vps/releases/tag/v1.0.0

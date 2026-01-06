@@ -3,7 +3,7 @@
 <div align="center">
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
+![Version](https://img.shields.io/badge/version-1.0.1-green.svg)
 ![Bash](https://img.shields.io/badge/bash-5.0+-orange.svg)
 ![Ubuntu](https://img.shields.io/badge/ubuntu-18.04+-E95420.svg?logo=ubuntu&logoColor=white)
 ![Debian](https://img.shields.io/badge/debian-9+-A81D33.svg?logo=debian&logoColor=white)
