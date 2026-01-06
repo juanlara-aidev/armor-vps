@@ -24,12 +24,6 @@ Conéctate a tu VPS como **root** y ejecuta:
 curl -fsSL https://raw.githubusercontent.com/juanlara-aidev/armor-vps/main/install.sh | bash
 ```
 
-O si prefieres `wget`:
-
-```bash
-wget -qO- https://raw.githubusercontent.com/juanlara-aidev/armor-vps/main/install.sh | bash
-```
-
 **¡Eso es todo!** El script te pedirá:
 1. Tu **llave pública SSH** (generada previamente en tu computadora)
 2. El **puerto SSH** deseado (o presiona Enter para uno aleatorio)
@@ -77,20 +71,6 @@ ssh root@TU_IP_DEL_SERVIDOR
 ```
 
 ### 2. Llave SSH pública generada
-
-Si aún no tienes una llave SSH, créala en **tu computadora local**:
-
-```bash
-ssh-keygen -t ed25519 -C "tu_email@ejemplo.com"
-```
-
-Luego obtén tu llave pública:
-
-```bash
-cat ~/.ssh/id_ed25519.pub
-```
-
-Copia **todo** el contenido (comienza con `ssh-ed25519` o `ssh-rsa`).
 
 ### 3. Conexión activa
 
@@ -334,7 +314,7 @@ Si tienes problemas o preguntas:
 
 <div align="center">
 
-**Hecho con ❤️ para la comunidad**
+**Hecho con ❤️ por Juan Lara para la comunidad**
 
 [⬆ Volver arriba](#-armor-vps)
 

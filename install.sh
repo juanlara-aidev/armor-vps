@@ -3,8 +3,8 @@
 #  SCRIPT DE BLINDAJE PARA VPS - Ubuntu/Debian
 #  Versión: 1.0.0
 #
-#  Autor: Guía de Seguridad VPS
-#  Compatibilidad: Ubuntu 18.04+ / Debian 9+
+#  Autor: Juan Lara
+#  Compatibilidad: Ubuntu/Debian
 #═══════════════════════════════════════════════════════════════════════════════
 
 #───────────────────────────────────────────────────────────────────────────────
